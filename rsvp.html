@@ -33,24 +33,37 @@
                 <input id="phone" placeholder="Phone Number">
 
 
-                <input id="guests" type="number" placeholder="Number of Guests" required>
-
-
-
                 <select id="attending">
 
                     <option value="true">
-                        Yes, I will attend
+                        ✅ Yes, I will attend
                     </option>
 
                     <option value="false">
-                        Sorry, cannot attend
+                        ❌ Sorry, cannot attend
                     </option>
 
                 </select>
 
 
-                <br><br>
+
+                <input id="adults" type="number" placeholder="Number of Adults" value="1">
+
+
+
+                <input id="children" type="number" placeholder="Number of Children" value="0">
+
+
+
+                <input id="family_members" placeholder="Family Members Names (Optional)">
+
+
+
+                <textarea id="message" placeholder="Your Message / Blessings (Optional)" rows="4"></textarea>
+
+
+
+                <br>
 
 
                 <button class="rsvp-btn">
@@ -71,6 +84,7 @@
 
 
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">

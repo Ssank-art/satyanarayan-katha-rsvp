@@ -3,7 +3,7 @@ const SUPABASE_URL =
 
 
 const SUPABASE_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzcnJibGFmcnByZmp5ZGxqdGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ2NDI2NzcsImV4cCI6MjEwMDIxODY3N30.vtZPw54BUV_5uCMrvJwK9irYNmUcdjK9S6Ecl3EBewU";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzcnJibGFmcnByZmp5ZDdsanRjdiIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzg0NjQyNjc3LCJleHAiOjIxMDAyMTg2Nzd9.vtZPw54BUV_5uCMrvJwK9irYNmUcdjK9S6Ecl3EBewU";
 
 
 const client =
@@ -25,64 +25,107 @@ e.preventDefault();
 
 
 
-const data={
+const data = {
+
 
 name:
-document.getElementById("name").value,
+document
+.getElementById("name")
+.value
+.trim(),
+
 
 
 phone:
-document.getElementById("phone").value,
+document
+.getElementById("phone")
+.value
+.trim(),
 
-
-guests:
-Number(
-document.getElementById("guests").value
-),
 
 
 attending:
-document.getElementById("attending").value==="true"
+document
+.getElementById("attending")
+.value === "true",
+
+
+
+adults:
+Number(
+document
+.getElementById("adults")
+.value || 0
+),
+
+
+
+children:
+Number(
+document
+.getElementById("children")
+.value || 0
+),
+
+
+
+family_members:
+document
+.getElementById("family_members")
+.value
+.trim(),
+
+
+
+message:
+document
+.getElementById("message")
+.value
+.trim()
+
+
 
 };
 
 
 
-const {error}=await client
+
+const {data:result,error}=await client
 .from("guests")
-.insert(data);
+.insert([data])
+.select();
 
 
 
 if(error){
 
 
+console.error(error);
+
+
 document
 .getElementById("message")
-.innerHTML=
-"❌ Something went wrong";
+.innerHTML =
+"❌ Something went wrong. Please try again.";
 
 
-console.log(error);
+return;
 
 
 }
 
-else{
 
 
 document
 .getElementById("message")
-.innerHTML=
+.innerHTML =
 "🙏 Thank you! Your RSVP has been received.";
+
 
 
 document
 .getElementById("rsvpForm")
 .reset();
-
-
-}
 
 
 
