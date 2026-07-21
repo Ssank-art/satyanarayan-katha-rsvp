@@ -69,13 +69,6 @@ document
 
 
 
-family_members:
-document
-.getElementById("family_members")
-.value
-.trim(),
-
-
 
 message:
 document
