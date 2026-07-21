@@ -3,7 +3,7 @@ const SUPABASE_URL =
 
 
 const SUPABASE_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNzcnJibGFmcnByZmp5ZGxqdGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ2NDI2NzcsImV4cCI6MjEwMDIxODY3N30.vtZPw54BUV_5uCMrvJwK9irYNmUcdjK9S6Ecl3EBewU";
+"YOUR_ANON_KEY";
 
 
 const client =
@@ -14,9 +14,12 @@ SUPABASE_KEY
 
 
 
-let guests=[];
+let guests = [];
 
 
+
+
+// Load guests
 
 async function loadGuests(){
 
@@ -38,30 +41,35 @@ ascending:false
 
 if(error){
 
-console.log(error);
+console.error(error);
+
 return;
 
 }
 
 
-
 guests=data;
 
 
-displayGuests(data);
+displayGuests(
+guests
+);
 
 
 }
 
 
 
+
+// Display table
+
 function displayGuests(list){
 
 
-const tbody=
-document.querySelector(
-"#guestTable tbody"
-);
+
+const tbody =
+document
+.querySelector("#guestTable tbody");
 
 
 
@@ -69,14 +77,29 @@ tbody.innerHTML="";
 
 
 
-let total=0;
+let families=0;
+
+let adults=0;
+
+let children=0;
 
 
 
 list.forEach(g=>{
 
 
-total += g.guests;
+families++;
+
+
+if(g.attending){
+
+
+adults += g.adults || 0;
+
+children += g.children || 0;
+
+
+}
 
 
 
@@ -85,15 +108,42 @@ tbody.innerHTML += `
 
 <tr>
 
-<td>${g.name}</td>
-
-<td>${g.phone || "-"}</td>
-
-<td>${g.guests}</td>
 
 <td>
-${g.attending ? "✅ Yes":"❌ No"}
+${g.name}
 </td>
+
+
+<td>
+${g.phone || "-"}
+</td>
+
+
+<td>
+${g.adults || 0}
+</td>
+
+
+<td>
+${g.children || 0}
+</td>
+
+
+<td>
+
+${g.attending 
+? "✅ Attending"
+: "❌ Not Coming"}
+
+</td>
+
+
+<td>
+
+${g.message || "-"}
+
+</td>
+
 
 
 </tr>
@@ -108,12 +158,33 @@ ${g.attending ? "✅ Yes":"❌ No"}
 
 document
 .getElementById("summary")
-.innerHTML=
+.innerHTML = `
 
-`
-Responses: ${list.length}
- |
- Guests: ${total}
+
+<h3>
+
+Families:
+${families}
+
+<br>
+
+Adults:
+${adults}
+
+<br>
+
+Children:
+${children}
+
+<br>
+
+Total Guests:
+${adults + children}
+
+
+</h3>
+
+
 `;
 
 
@@ -122,11 +193,12 @@ Responses: ${list.length}
 
 
 
+// Search
 
 function filterGuests(){
 
 
-const value=
+const value =
 document
 .getElementById("search")
 .value
@@ -134,12 +206,14 @@ document
 
 
 
-const filtered=
-guests.filter(g=>
+const filtered =
+guests.filter(g =>
+
 
 g.name
 .toLowerCase()
 .includes(value)
+
 
 );
 
@@ -154,12 +228,14 @@ displayGuests(filtered);
 
 
 
+// Export CSV
 
 function exportCSV(){
 
 
-let csv=
-"Name,Phone,Guests,Attending\n";
+let csv =
+
+"Name,Phone,Adults,Children,Attending,Family Members,Message\n";
 
 
 
@@ -168,7 +244,14 @@ guests.forEach(g=>{
 
 csv +=
 
-`${g.name},${g.phone || ""},${g.guests},${g.attending}\n`;
+`"${g.name}",
+"${g.phone || ''}",
+"${g.adults || 0}",
+"${g.children || 0}",
+"${g.attending ? 'Yes':'No'}",
+"${g.family_members || ''}",
+"${g.message || ''}"\n`;
+
 
 
 });
@@ -190,31 +273,35 @@ URL.createObjectURL(blob);
 
 
 
-const a =
+const link =
 document.createElement("a");
 
 
-a.href=url;
+link.href=url;
 
 
-a.download=
-"satyanarayan_rsvp.csv";
+link.download =
+"Satyanarayan_Katha_RSVP.csv";
 
 
-a.click();
+link.click();
+
 
 
 }
 
 
 
+
 async function logout(){
 
 
-await client.auth.signOut();
+await client
+.auth
+.signOut();
 
 
-window.location.href=
+window.location.href =
 "admin.html";
 
 

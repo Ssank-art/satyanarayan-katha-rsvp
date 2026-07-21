@@ -24,15 +24,20 @@
             </h1>
 
 
-            <h3 id="summary">
+            <div id="summary">
+
                 Loading...
-            </h3>
+
+            </div>
+
 
 
             <input id="search" placeholder="Search guest name..." onkeyup="filterGuests()">
 
 
+
             <table id="guestTable">
+
 
                 <thead>
 
@@ -42,9 +47,13 @@
 
                         <th>Phone</th>
 
-                        <th>Guests</th>
+                        <th>Adults</th>
+
+                        <th>Children</th>
 
                         <th>Status</th>
+
+                        <th>Message</th>
 
                     </tr>
 
@@ -64,7 +73,7 @@
 
             <button class="rsvp-btn" onclick="exportCSV()">
 
-                ⬇ Download CSV
+                ⬇ Export CSV
 
             </button>
 
