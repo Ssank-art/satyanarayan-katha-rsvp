@@ -1,108 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RSVP Dashboard</title>
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
+    <meta name="description" content="View, search, and export RSVP guest responses." />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-
 <body>
+    <main class="dashboard-page">
+        <section class="dashboard-shell">
+            <header class="dashboard-header">
+                <div>
+                    <p class="eyebrow">Admin Panel</p>
+                    <h1>🙏 RSVP Dashboard</h1>
+                    <p class="dashboard-subtitle">
+                        Review attendance, search guests, and export responses.
+                    </p>
+                </div>
 
+                <div class="dashboard-actions top-actions">
+                    <button class="rsvp-btn secondary-btn" onclick="exportCSV()">
+                        ⬇ Export CSV
+                    </button>
+                    <button class="rsvp-btn ghost-btn" onclick="logout()">
+                        Logout
+                    </button>
+                </div>
+            </header>
 
-    <div class="container">
+            <section class="summary-panel">
+                <h2>Overview</h2>
+                <div id="summary" class="summary-content">
+                    Loading...
+                </div>
+            </section>
 
+            <section class="table-panel">
+                <div class="table-toolbar">
+                    <div class="search-group">
+                        <label for="search">Search Guest</label>
+                        <input id="search" type="search" placeholder="Search guest name..." onkeyup="filterGuests()" />
+                    </div>
+                </div>
 
-        <div class="invitation-card">
+                <div class="table-wrap">
+                    <table id="guestTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Adults</th>
+                                <th>Children</th>
+                                <th>Status</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </main>
 
-
-            <h1>
-                🙏 RSVP Dashboard
-            </h1>
-
-
-            <div id="summary">
-
-                Loading...
-
-            </div>
-
-
-
-            <input id="search" placeholder="Search guest name..." onkeyup="filterGuests()">
-
-
-
-            <table id="guestTable">
-
-
-                <thead>
-
-                    <tr>
-
-                        <th>Name</th>
-
-                        <th>Phone</th>
-
-                        <th>Adults</th>
-
-                        <th>Children</th>
-
-                        <th>Status</th>
-
-                        <th>Message</th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                </tbody>
-
-
-            </table>
-
-
-            <br>
-
-
-            <button class="rsvp-btn" onclick="exportCSV()">
-
-                ⬇ Export CSV
-
-            </button>
-
-
-            <br><br>
-
-
-            <button class="rsvp-btn" onclick="logout()">
-
-                Logout
-
-            </button>
-
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-    </script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/js/dashboard.js"></script>
-
-
 </body>
 
 </html>

@@ -103,7 +103,7 @@ console.error(error);
 
 
 document
-.getElementById("message")
+.getElementById("messagee")
 .innerHTML =
 "❌ Something went wrong. Please try again.";
 
@@ -116,7 +116,7 @@ return;
 
 
 document
-.getElementById("message")
+.getElementById("messagee")
 .innerHTML =
 "🙏 Thank you! Your RSVP has been received.";
 

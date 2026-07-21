@@ -1,99 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RSVP</title>
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
+    <meta name="description" content="Confirm your RSVP and share your blessings." />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-
 <body>
+    <main class="page">
+        <section class="rsvp-section">
+            <div class="rsvp-card">
+                <div class="rsvp-header">
+                    <p class="eyebrow">We’d love to celebrate with you</p>
+                    <h1>🙏 RSVP</h1>
+                    <p class="subtitle">
+                        Please confirm your attendance and share your blessings with us.
+                    </p>
+                </div>
 
+                <form id="rsvpForm" class="rsvp-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                        <input id="name" name="name" type="text" placeholder="Enter your full name" autocomplete="name"
+                            required />
+                    </div>
 
-    <div class="container">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" name="phone" type="tel" placeholder="e.g. +1 226 555 1234" autocomplete="tel"
+                            inputmode="tel" />
+                    </div>
 
+                    <div class="form-group">
+                        <label for="attending">Will you attend? <span aria-hidden="true">*</span></label>
+                        <select id="attending" name="attending" required>
+                            <option value="true">✅ Yes, I will attend</option>
+                            <option value="false">❌ Sorry, cannot attend</option>
+                        </select>
+                    </div>
 
-        <div class="invitation-card">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adults">Number of Adults</label>
+                            <input id="adults" name="adults" type="number" min="0" max="20" value="1" placeholder="1"
+                                inputmode="numeric" />
+                        </div>
 
+                        <div class="form-group">
+                            <label for="children">Number of Children</label>
+                            <input id="children" name="children" type="number" min="0" max="20" value="0"
+                                placeholder="0" inputmode="numeric" />
+                        </div>
+                    </div>
+                       <p></p> 
+                    <button type="submit" class="rsvp-btn">Confirm RSVP</button>
 
-            <h1>
-                🙏 RSVP
-            </h1>
+                    <p id="messagee" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
 
-
-            <form id="rsvpForm">
-
-
-                <input id="name" placeholder="Your Name" required>
-
-
-                <input id="phone" placeholder="Phone Number">
-
-
-                <select id="attending">
-
-                    <option value="true">
-                        ✅ Yes, I will attend
-                    </option>
-
-                    <option value="false">
-                        ❌ Sorry, cannot attend
-                    </option>
-
-                </select>
-
-
-
-                <input id="adults" type="number" placeholder="Number of Adults" value="1">
-
-
-
-                <input id="children" type="number" placeholder="Number of Children" value="0">
-
-
-
-                <input id="family_members" placeholder="Family Members Names (Optional)">
-
-
-
-                <textarea id="message" placeholder="Your Message / Blessings (Optional)" rows="4"></textarea>
-
-
-
-                <br>
-
-
-                <button class="rsvp-btn">
-
-                    Confirm RSVP
-
-                </button>
-
-
-            </form>
-
-
-
-            <p id="message"></p>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-    </script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/js/rsvp.js"></script>
-
-
 </body>
 
 </html>

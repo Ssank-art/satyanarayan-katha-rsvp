@@ -1,59 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Login</title>
-
-    <link rel="stylesheet" href="assets/css/style.css">
-
+    <meta name="description" content="Secure admin access for RSVP management." />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-
 <body>
+    <main class="page auth-page">
+        <section class="auth-shell">
+            <article class="auth-card">
+                <header class="auth-header">
+                    <p class="eyebrow">Secure Access</p>
+                    <h1>🔐 Admin Login</h1>
+                    <p class="auth-subtitle">
+                        Sign in to manage guest responses and exports.
+                    </p>
+                </header>
 
+                <form class="auth-form" onsubmit="event.preventDefault(); login();" novalidate>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="Enter your email" autocomplete="email"
+                            required />
+                    </div>
 
-    <div class="container">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" placeholder="Enter your password"
+                            autocomplete="current-password" required />
+                    </div>
 
+                    <button type="submit" class="rsvp-btn">Login</button>
 
-        <div class="invitation-card">
+                    <p id="message" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </article>
+        </section>
+    </main>
 
-
-            <h1>
-                🔐 Admin Login
-            </h1>
-
-
-            <input id="email" placeholder="Email">
-
-
-            <input id="password" type="password" placeholder="Password">
-
-
-            <button class="rsvp-btn" onclick="login()">
-
-                Login
-
-            </button>
-
-
-            <p id="message"></p>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-    </script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/js/auth.js"></script>
-
-
 </body>
 
 </html>
