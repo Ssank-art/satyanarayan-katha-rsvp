@@ -92,8 +92,7 @@ document
 
 const {data:result,error}=await client
 .from("guests")
-.insert([data])
-.select();
+.insert([data]);
 
 
 
