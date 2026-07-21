@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>RSVP Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <div class="invitation-card">
+
+
+            <h1>
+                🙏 RSVP Dashboard
+            </h1>
+
+
+            <h3 id="summary">
+                Loading...
+            </h3>
+
+
+            <input id="search" placeholder="Search guest name..." onkeyup="filterGuests()">
+
+
+            <table id="guestTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+
+                        <th>Phone</th>
+
+                        <th>Guests</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                </tbody>
+
+
+            </table>
+
+
+            <br>
+
+
+            <button class="rsvp-btn" onclick="exportCSV()">
+
+                ⬇ Download CSV
+
+            </button>
+
+
+            <br><br>
+
+
+            <button class="rsvp-btn" onclick="logout()">
+
+                Logout
+
+            </button>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
+
+
+    <script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

@@ -1,1 +1,284 @@
-body{font-family:Arial;max-width:700px;margin:40px auto;padding:20px}
+*{
+    box-sizing:border-box;
+}
+
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    background:
+
+    linear-gradient(
+        rgba(124,33,64,0.94),
+        rgba(124,33,64,0.94)
+    );
+
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+.container{
+
+    width:100%;
+
+    padding:20px;
+
+}
+
+
+
+.invitation-card{
+
+
+    max-width:500px;
+
+    margin:auto;
+
+    background:#fff8e7;
+
+
+    border-radius:25px;
+
+
+    padding:35px 25px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,0.3);
+
+
+    border:
+
+    5px solid #d4af37;
+
+
+}
+
+
+
+.om{
+
+    font-size:55px;
+
+    color:#b8860b;
+
+    margin-bottom:10px;
+
+}
+
+
+
+h1{
+
+    font-family:'Tiro Devanagari Sanskrit';
+
+    color:#8b0000;
+
+    font-size:32px;
+
+}
+
+
+
+h2{
+
+    color:#b8860b;
+
+}
+
+
+
+.divider{
+
+    color:#d4af37;
+
+    font-size:22px;
+
+    margin:20px;
+
+}
+
+
+
+.intro{
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    color:#444;
+
+}
+
+
+
+.details{
+
+    margin-top:25px;
+
+}
+
+
+
+.details div{
+
+
+    background:#fff;
+
+    margin:15px 0;
+
+    padding:15px;
+
+
+    border-radius:15px;
+
+
+    border-left:
+
+    5px solid #d4af37;
+
+
+}
+
+
+
+.details span{
+
+    font-size:25px;
+
+}
+
+
+
+.details strong{
+
+    display:block;
+
+    color:#8b0000;
+
+    margin-top:5px;
+
+}
+
+
+
+.details p{
+
+    margin:5px;
+
+}
+
+
+
+.family{
+
+    margin:25px;
+
+    font-size:18px;
+
+    color:#555;
+
+}
+
+
+
+.rsvp-btn{
+
+
+    display:inline-block;
+
+
+    padding:14px 35px;
+
+
+    background:#7c2140;
+
+
+    color:white;
+
+
+    border-radius:30px;
+
+
+    text-decoration:none;
+
+
+    font-size:18px;
+
+
+    transition:.3s;
+
+}
+
+
+
+.rsvp-btn:hover{
+
+    background:#b8860b;
+
+}
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+font-size:14px;
+
+}
+
+
+th{
+
+background:#7c2140;
+
+color:white;
+
+padding:10px;
+
+}
+
+
+td{
+
+padding:10px;
+
+border-bottom:1px solid #ddd;
+
+}
+
+
+
+input,
+select{
+
+width:90%;
+
+padding:12px;
+
+margin:10px;
+
+border-radius:10px;
+
+border:1px solid #ccc;
+
+}

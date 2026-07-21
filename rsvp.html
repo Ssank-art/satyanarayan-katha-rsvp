@@ -1,11 +1,85 @@
-<!doctype html><html><body>
-<h2>RSVP</h2>
-<form id="f">
-<input id="name" placeholder="Name"><br>
-<input id="phone" placeholder="Phone"><br>
-<button>Submit</button>
-</form>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/config.js"></script>
-<script src="assets/js/rsvp.js"></script>
-</body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>RSVP</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <div class="invitation-card">
+
+
+            <h1>
+                🙏 RSVP
+            </h1>
+
+
+            <form id="rsvpForm">
+
+
+                <input id="name" placeholder="Your Name" required>
+
+
+                <input id="phone" placeholder="Phone Number">
+
+
+                <input id="guests" type="number" placeholder="Number of Guests" required>
+
+
+
+                <select id="attending">
+
+                    <option value="true">
+                        Yes, I will attend
+                    </option>
+
+                    <option value="false">
+                        Sorry, cannot attend
+                    </option>
+
+                </select>
+
+
+                <br><br>
+
+
+                <button class="rsvp-btn">
+
+                    Confirm RSVP
+
+                </button>
+
+
+            </form>
+
+
+
+            <p id="message"></p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
+
+
+    <script src="js/rsvp.js"></script>
+
+
+</body>
+
+</html>
