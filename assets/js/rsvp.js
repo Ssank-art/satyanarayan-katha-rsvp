@@ -12,17 +12,15 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
+const form = document.getElementById("rsvpForm");
 
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-document
-.getElementById("rsvpForm")
-.addEventListener(
-"submit",
-async function(e){
-
-
-e.preventDefault();
-
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
 
 
 const data = {
